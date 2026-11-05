@@ -1,0 +1,488 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Pixelify+Sans:wght@400..700&display=swap');
+.pxrp-window {
+  width:var(--pxrp-width,80%);
+  max-width:var(--pxrp-max-width,750px);
+  margin:20px auto;
+  padding:8px;
+  box-sizing:border-box;
+  background:var(--pxrp-window);
+  color:var(--pxrp-text);
+  border:4px solid var(--pxrp-border);
+  box-shadow:6px 6px 0 var(--pxrp-border);
+  font-family:'Bai Jamjuree',sans-serif;
+}
+.pxrp-window,
+.pxrp-window * {
+  box-sizing:border-box;
+}
+
+.pxrp-title {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  background:var(--pxrp-accent);
+  color:var(--pxrp-text);
+  border-bottom:4px solid var(--pxrp-border);
+  font:20px 'Pixelify Sans',monospace;
+}
+
+.pxrp-titletext {
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+.pxrp-controls {
+  display:flex;
+  gap:6px;
+  flex-shrink:0;
+}
+
+.pxrp-control {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:24px;
+  height:24px;
+  background:var(--pxrp-window);
+  color:var(--pxrp-text);
+  border:2px solid var(--pxrp-border);
+  box-shadow:2px 2px 0 var(--pxrp-border);
+  line-height:1;
+}
+
+.pxrp-header {
+  display:flex;
+  align-items:center;
+  gap:20px;
+  min-height:120px;
+  padding:15px;
+  background:var(--pxrp-window);
+  border-bottom:4px solid var(--pxrp-border);
+}
+
+.pxrp-avatarwrap {
+  position:relative;
+  width:var(--pxrp-avatar-size,100px);
+  height:var(--pxrp-avatar-size,100px);
+  flex-shrink:0;
+}
+
+.pxrp-avatar {
+  width:100%;
+  height:100%;
+  background-color:var(--pxrp-accent);
+  background-image:var(--pxrp-avatar-img);
+  background-size:cover;
+  background-position:center;
+  image-rendering:var(--pxrp-avatar-render,auto);
+  border:4px solid var(--pxrp-border);
+  transition:transform .25s steps(4,end),
+             filter .25s steps(4,end);
+}
+
+.pxrp-avatarwrap:hover .pxrp-avatar {
+  transform:translateY(-5px) scale(1.04);
+  filter:brightness(1.08);
+}
+
+.pxrp-avatarwrap::after {
+  content:"✦";
+  position:absolute;
+  top:-12px;
+  right:-10px;
+  color:var(--pxrp-heart);
+  font-size:24px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s;
+}
+
+.pxrp-avatarwrap:hover::after {
+  opacity:1;
+}
+
+.pxrp-info {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+  min-width:0;
+}
+
+.pxrp-name {
+  color:var(--pxrp-text);
+  font:700 25px/1.2 'Pixelify Sans',monospace;
+  overflow-wrap:anywhere;
+}
+
+.pxrp-status {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  color:var(--pxrp-text);
+  font:19px 'Pixelify Sans',monospace;
+}
+
+.pxrp-dot {
+  display:inline-block;
+  flex-shrink:0;
+  width:11px;
+  height:11px;
+  background:var(--pxrp-online);
+  border:2px solid var(--pxrp-border);
+}
+
+.pxrp-blink {
+  animation:pxrp-blink 1.5s steps(2,end) infinite;
+}
+
+@keyframes pxrp-blink {
+  50% {opacity:.35;}
+}
+
+.pxrp-mood {
+  display:inline-block;
+  width:fit-content;
+  padding:4px 10px;
+  background:var(--pxrp-accent);
+  color:var(--pxrp-text);
+  border:2px solid var(--pxrp-border);
+  font:15px 'Pixelify Sans',monospace;
+}
+
+.pxrp-body {
+  min-height:var(--pxrp-body-height,400px);
+  padding:20px 15px;
+  background-color:var(--pxrp-chat);
+  border-bottom:4px solid var(--pxrp-border);
+}
+
+.pxrp-checker {
+  background-image:
+    linear-gradient(45deg,
+      var(--pxrp-pattern,var(--pxrp-window)) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--pxrp-pattern,var(--pxrp-window)) 75%),
+    linear-gradient(45deg,
+      var(--pxrp-pattern,var(--pxrp-window)) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--pxrp-pattern,var(--pxrp-window)) 75%);
+  background-size:
+    calc(var(--pxrp-pattern-size,24px)*2)
+    calc(var(--pxrp-pattern-size,24px)*2);
+  background-position:
+    0 0,
+    var(--pxrp-pattern-size,24px)
+    var(--pxrp-pattern-size,24px);
+}
+
+.pxrp-dots {
+  background-image:radial-gradient(
+    var(--pxrp-pattern,var(--pxrp-window)) 2px,
+    transparent 2px
+  );
+  background-size:
+    var(--pxrp-pattern-size,24px)
+    var(--pxrp-pattern-size,24px);
+}
+
+.pxrp-grid {
+  background-image:
+    linear-gradient(
+      var(--pxrp-pattern,var(--pxrp-window)) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--pxrp-pattern,var(--pxrp-window)) 1px,
+      transparent 1px
+    );
+  background-size:
+    var(--pxrp-pattern-size,24px)
+    var(--pxrp-pattern-size,24px);
+}
+
+.pxrp-message {
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:25px;
+}
+
+.pxrp-message:last-child {
+  margin-bottom:0;
+}
+
+.pxrp-msgavatar {
+  width:var(--pxrp-msgavatar-size,60px);
+  height:var(--pxrp-msgavatar-size,60px);
+  flex-shrink:0;
+  background-color:var(--pxrp-accent);
+  background-image:var(--pxrp-msg-img);
+  background-size:cover;
+  background-position:center;
+  image-rendering:var(--pxrp-msg-render,auto);
+  border:3px solid var(--pxrp-border);
+}
+
+.pxrp-msgcontent {
+  flex:1;
+  min-width:0;
+  max-width:var(--pxrp-bubble-width,100%);
+}
+
+.pxrp-bubbleframe {
+  padding:4px;
+  background:var(--pxrp-border);
+  clip-path:polygon(
+    0 8px,4px 8px,4px 4px,8px 4px,8px 0,
+    calc(100% - 8px) 0,
+    calc(100% - 8px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 8px,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) 100%,
+    8px 100%,8px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 8px),
+    0 calc(100% - 8px)
+  );
+}
+
+.pxrp-bubble {
+  padding:13px 15px;
+  background:var(--pxrp-bubble);
+  color:var(--pxrp-text);
+  font:16px/1.7 'Bai Jamjuree',sans-serif;
+  overflow-wrap:anywhere;
+}
+
+.pxrp-bubble p {
+  margin:0 0 10px;
+}
+
+.pxrp-bubble p:last-child {
+  margin-bottom:0;
+}
+
+.pxrp-msgstatus {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:7px;
+  padding-left:4px;
+  color:var(--pxrp-text);
+  font:14px 'Pixelify Sans',monospace;
+}
+
+.pxrp-meta {
+  display:inline-flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+}
+
+.pxrp-heart {
+  display:inline-block;
+  padding:2px 8px;
+  background:var(--pxrp-window);
+  color:var(--pxrp-heart);
+  border:2px solid var(--pxrp-border);
+  font:15px 'Pixelify Sans',monospace;
+  transition:transform .2s steps(3,end);
+}
+
+.pxrp-heart:hover {
+  transform:scale(1.12);
+}
+
+.pxrp-typing {
+  display:flex;
+  align-items:center;
+  gap:5px;
+  min-height:24px;
+}
+
+.pxrp-typingdot {
+  width:9px;
+  height:9px;
+  background:var(--pxrp-heart);
+  animation:pxrp-typing
+    var(--pxrp-speed,1.2s) steps(3,end) infinite;
+}
+
+.pxrp-typingdot:nth-child(2) {
+  animation-delay:.2s;
+}
+
+.pxrp-typingdot:nth-child(3) {
+  animation-delay:.4s;
+}
+
+@keyframes pxrp-typing {
+  0%,60%,100% {transform:translateY(0);}
+  30% {transform:translateY(-7px);}
+}
+
+
+.pxrp-expand {
+  margin-top:10px;
+  color:var(--pxrp-text);
+}
+
+.pxrp-expand summary {
+  display:list-item;
+  cursor:pointer;
+  padding:7px 10px;
+  background:var(--pxrp-window);
+  color:var(--pxrp-text);
+  border:2px solid var(--pxrp-border);
+  font:16px 'Pixelify Sans',monospace;
+}
+
+.pxrp-expandcontent {
+  padding:12px;
+  margin-top:8px;
+  background:var(--pxrp-window);
+  color:var(--pxrp-text);
+  border:2px solid var(--pxrp-border);
+  font-family:'Bai Jamjuree',sans-serif;
+}
+
+
+.pxrp-footer {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:65px;
+  padding:15px;
+  background:var(--pxrp-window);
+}
+
+.pxrp-input {
+  flex:1;
+  min-width:0;
+  padding:12px;
+  background:var(--pxrp-window);
+  color:var(--pxrp-text);
+  border:3px solid var(--pxrp-border);
+  font:17px 'Pixelify Sans',monospace;
+}
+
+.pxrp-send {
+  padding:12px 16px;
+  background:var(--pxrp-accent);
+  color:var(--pxrp-text);
+  border:3px solid var(--pxrp-border);
+  box-shadow:3px 3px 0 var(--pxrp-border);
+  font:17px 'Pixelify Sans',monospace;
+  white-space:nowrap;
+  transition:transform .15s;
+}
+
+.pxrp-send:hover {
+  transform:translateY(-2px);
+}
+
+
+.pxrp-window.pxrp-no-title .pxrp-title,
+.pxrp-window.pxrp-no-mood .pxrp-mood,
+.pxrp-window.pxrp-no-status .pxrp-status,
+.pxrp-window.pxrp-no-meta .pxrp-meta,
+.pxrp-window.pxrp-no-heart .pxrp-heart,
+.pxrp-window.pxrp-no-typing .pxrp-typingmessage,
+.pxrp-window.pxrp-no-footer .pxrp-footer {
+  display:none;
+}
+
+.pxrp-window.pxrp-no-hover .pxrp-avatarwrap:hover .pxrp-avatar {
+  transform:none;
+  filter:none;
+}
+
+.pxrp-window.pxrp-no-hover .pxrp-avatarwrap::after {
+  display:none;
+}
+
+.pxrp-hide {
+  display:none !important;
+}
+
+.pxrp-no-animation .pxrp-typingdot,
+.pxrp-no-animation .pxrp-dot {
+  animation:none;
+}
+
+
+@media(max-width:480px) {
+  .pxrp-window {
+    width:var(--pxrp-mobile-width,96%);
+    padding:5px;
+  }
+
+  .pxrp-header {
+    gap:10px;
+    padding:10px;
+  }
+
+  .pxrp-avatarwrap {
+    width:var(--pxrp-mobile-avatar,65px);
+    height:var(--pxrp-mobile-avatar,65px);
+  }
+
+  .pxrp-name {font-size:21px;}
+  .pxrp-status {font-size:16px;}
+  .pxrp-body {padding:15px 8px;}
+
+  .pxrp-msgavatar {
+    width:var(--pxrp-mobile-msgavatar,42px);
+    height:var(--pxrp-mobile-msgavatar,42px);
+  }
+
+  .pxrp-message {gap:8px;}
+  .pxrp-bubble {padding:10px;font-size:14px;}
+  .pxrp-footer {padding:10px 5px;}
+  .pxrp-send {padding:12px 8px;}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .pxrp-window *,
+  .pxrp-window *::before,
+  .pxrp-window *::after {
+    animation:none !important;
+    transition:none !important;
+  }
+}
+
+#linaspace {position: relative;}
+#linaspace {box-sizing: border-box;}
+#linaspace :hover::after {content: "linaspace";}
+#linaspace
+a[href="https://discord.com/users/806182478863663176"] {
+    height: 12px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#linaspace::after {
+    display: block;
+    content: "eiei";
+    font-family: 'Playwrite HU';
+    font-size: x-small;
+    color: gray !important;
+    width: 100%;
+    text-align: center;
+}
