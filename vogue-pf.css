@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.vogue {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: "Bai Jamjuree", sans-serif;
+
+    display: grid;
+    grid-template-rows: 18% 35% 39% 8%;
+}
+
+
+/* HEADER */
+
+header {
+    border-top: 1.5vh solid var(--pink);
+
+    padding: 1.5vh 3vw;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.account,
+.icon {
+    font-size: clamp(6px, .7vw, 11px);
+}
+
+.icon {
+    text-align: right;
+}
+
+.title {
+    text-align: center;
+}
+
+.title small {
+    font-size: clamp(6px, .6vw, 10px);
+}
+
+.title h1 {
+    margin: .5vh 0;
+
+    color: var(--accent);
+
+    font-size: clamp(20px, 3vw, 45px);
+    font-weight: 400;
+    letter-spacing: .4vw;
+}
+
+.title p {
+    margin: 0;
+    font-size: clamp(5px, .6vw, 9px);
+}
+
+
+/* 3 IMAGES */
+
+.covers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.covers > div {
+    position: relative;
+
+    background-position: center;
+    background-size: cover;
+}
+
+.covers span {
+    position: absolute;
+    bottom: 1vh;
+    left: 1vw;
+
+    padding: 3px 7px;
+
+    background: rgba(255,255,255,.7);
+
+    font-size: clamp(5px, .5vw, 8px);
+}
+
+
+/* LOWER AREA */
+
+main {
+    padding: 2vh 4vw;
+
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+
+    gap: 3vw;
+
+    background:
+        radial-gradient(circle at 25% 70%, var(--soft) 0 14%, transparent 15%),
+        var(--bg);
+}
+
+
+/* COLLECTION */
+
+.collection h2 {
+    margin: 0;
+
+    font-size: clamp(17px, 2.7vw, 40px);
+    font-weight: 300;
+    line-height: .9;
+}
+
+.collection p {
+    color: var(--accent);
+    font-size: clamp(5px, .6vw, 9px);
+}
+
+.quote {
+    margin-top: 3vh;
+
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+
+    font-size: clamp(8px, 1.1vw, 17px);
+}
+
+.dots {
+    margin-top: 2vh;
+    display: flex;
+    gap: 7px;
+}
+
+.dots i {
+    width: clamp(7px, 1vw, 14px);
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+    background: var(--pink);
+}
+
+.dots i:nth-child(2) {
+    background: var(--accent);
+}
+
+.dots i:nth-child(3) {
+    background: var(--text);
+}
+
+
+/* POLAROIDS */
+
+.polaroids {
+    position: relative;
+}
+
+.polaroid {
+    position: absolute;
+
+    width: 42%;
+    padding: .7vw .7vw 1.8vw;
+
+    background: white;
+
+    box-shadow: 0 5px 15px #0002;
+}
+
+.polaroid > div {
+    width: 100%;
+    aspect-ratio: 1 / 1.05;
+
+    background-position: center;
+    background-size: cover;
+}
+
+.polaroid span {
+    font-size: clamp(5px, .5vw, 8px);
+}
+
+.one {
+    left: 10%;
+    top: 3%;
+    transform: rotate(-4deg);
+}
+
+.two {
+    right: 7%;
+    top: 10%;
+    transform: rotate(6deg);
+}
+
+
+/* GALLERY */
+
+.gallery {
+    position: relative;
+    padding-top: 2vh;
+}
+
+.gallery small {
+    color: var(--accent);
+    letter-spacing: .2vw;
+
+    font-size: clamp(5px, .6vw, 9px);
+}
+
+.gallery h2 {
+    margin: .5vh 0;
+
+    color: var(--accent);
+
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+
+    font-size: clamp(25px, 4vw, 60px);
+    font-weight: 400;
+}
+
+.gallery p {
+    font-size: clamp(5px, .7vw, 10px);
+}
+
+.decor {
+    position: absolute;
+    right: 5%;
+    bottom: 3%;
+
+    color: var(--pink);
+
+    font-size: clamp(40px, 8vw, 120px);
+
+    opacity: .7;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 0 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--pink);
+
+    font-size: clamp(6px, .7vw, 11px);
+}
+
+
+/* มือถือ / จอแคบ */
+
+@media (max-width: 600px) {
+
+    .vogue {
+        grid-template-rows: 16% 30% 46% 8%;
+    }
+
+    main {
+        padding: 1.5vh 3vw;
+        gap: 2vw;
+
+        grid-template-columns: .9fr 1.2fr .9fr;
+    }
+
+    .account small {
+        display: none;
+    }
+
+    .quote {
+        margin-top: 1.5vh;
+    }
+
+    .polaroid {
+        width: 50%;
+    }
+
+    .one {
+        left: 0;
+    }
+
+    .two {
+        right: 0;
+    }
+}
